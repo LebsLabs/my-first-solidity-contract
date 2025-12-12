@@ -1,15 +1,15 @@
-pragma solidity >=0.5.0 <0.6.0;
+pragma solidity >=0.5.0 <0.6.0; //version of pragma
 
-contract ZombieFactory {
+contract ZombieFactory { //program
 
-    event NewZombie(uint zombieId, string name, uint dna);
+    event NewZombie(uint zombieId, string name, uint dna); //call the program to run
 
     uint dnaDigits = 16;
-    uint dnaModulus = 10 ** dnaDigits;
+    uint dnaModulus = 10 ** dnaDigits; //making sure that the number has 16 digits
 
     struct Zombie {
-        string name;
-        uint dna;
+        string name;    //string = word
+        uint dna;       //uint = number, variable
     }
 
     Zombie[] public zombies;
@@ -35,3 +35,4 @@ contract ZombieFactory {
     }
 
 }
+
