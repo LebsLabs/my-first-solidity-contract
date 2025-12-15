@@ -17,11 +17,11 @@ contract ZombieFactory { //program
     mapping (uint => address) public zombieToOwner; //mapping numbers to addresses
     mapping (address => uint) ownerZombieCount;    //mapping addresses to numbers
 
-    function _createZombie(string memory _name, uint _dna) private {
-        uint id = zombies.push(Zombie(_name, _dna)) - 1;
-        zombieToOwner[id] = msg.sender; 
-        ownerZombieCount[msg.sender]++;
-        emit NewZombie(id, _name, _dna);
+    function _createZombie(string memory _name, uint _dna) private {    //a function named createZombie that receives _name and _dna and is private so only this contract can call it 
+        uint id = zombies.push(Zombie(_name, _dna)) - 1;    //field of zombie structures that creates a new zombie with _name and _dna and if the new lenght of array becomes 1 the index of the new zombie will be always 0    
+        zombieToOwner[id] = msg.sender; //the key-value pair zombieToOwner saves the ownership of id to the msg.sender
+        ownerZombieCount[msg.sender]++;    //adds the plus 1 zombie to the sender who owns the zombies
+        emit NewZombie(id, _name, _dna);    //send the this information on blockchain... where is readable to others eg. web3.js
     }
 
     function _generateRandomDna(string memory _str) private view returns (uint) {
@@ -36,6 +36,7 @@ contract ZombieFactory { //program
     }
 
 }
+
 
 
 
