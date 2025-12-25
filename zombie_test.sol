@@ -1,26 +1,26 @@
 //**
-* @dev This is pragma version.
+* @notice This is pragma version.
 */
 pragma solidity >=0.5.0 <0.6.0; 
 
 //** 
-* @dev Our smart contrat which is the program that we will write. 
-* @param Event calls our little progarm to run.
+* @title ZombieFactory 
+* @param NewZombie calls program to run. 
 */
 contract ZombieFactory { 
     event NewZombie(uint zombieId, string name, uint dna); 
 
     //**
-    * @dev The number will have 16 digits.
-    * @dev It will make sure that the number has really 16 digits.
+    * @notice The number will have 16 digits.
+    * @notice It will make sure that the number has really 16 digits.
     */
     uint dnaDigits = 16;    
     uint dnaModulus = 10 ** dnaDigits; 
 
     //** 
-    * @param Struct Zombie is like a map with label Zombie.
-    * @param The string is a word.
-    * @param The uint is a number or a var in python.
+    * @param Zombie is like a map where:
+    * @param string is a word.
+    * @param uint is a number.
     */
     struct Zombie {    
         string name;   
@@ -33,7 +33,7 @@ contract ZombieFactory {
     Zombie[] public zombies;
 
     //**
-    * @param Uint will be mapped to the address.
+    * @param Uint will be mapped to the address.        //->Tukaj ostal. 
     * @param Address will be mapped to a number. 
     */
     mapping (uint => address) public zombieToOwner; 
@@ -76,6 +76,7 @@ contract ZombieFactory {
     }
 
 }
+
 
 
 
